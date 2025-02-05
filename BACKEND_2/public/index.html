@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Interfaz de Autenticación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Autenticación</h1>
+
+    <section class="form-section">
+      <h2>Registrarse</h2>
+      <form id="registerForm">
+        <input type="text" name="first_name" placeholder="Nombre" required>
+        <input type="text" name="last_name" placeholder="Apellido" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="number" name="age" placeholder="Edad" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+    </section>
+
+    <section class="form-section">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
+      </form>
+    </section>
+
+    <section class="query-section">
+      <h2>Obtener Usuario Actual</h2>
+      <button id="btnGetCurrent">Consultar</button>
+    </section>
+
+    <pre id="result"></pre>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
