@@ -41,6 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (res.ok) {
         result.textContent = 'Login exitoso. La cookie de token ha sido establecida.';
+        Swal.fire({
+          title: '¡Login exitoso!',
+          text: '¿Deseas ir al proceso de compra?',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: 'Sí, ir a comprar',
+          cancelButtonText: 'No, quedarme aquí'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/checkout.html'; 
+          }
+        });
       } else {
         result.textContent = 'Error: ' + data.message;
       }

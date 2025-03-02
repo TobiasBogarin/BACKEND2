@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -11,15 +10,14 @@ require('./config/passport');
 
 
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/users');
+const cartRoutes = require('./routes/cart'); 
 
 const app = express();
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-
 app.use(passport.initialize());
 
 
@@ -27,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api/sessions', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/cart', cartRoutes); 
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
